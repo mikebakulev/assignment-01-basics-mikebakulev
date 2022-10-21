@@ -31,5 +31,34 @@ z = get_float()
 print(x, y, z)  # вывести три числа через пробел
 
 # Место для вашего кода
+# спасибо
+FLOATS = 0
+print(x + y + z)
+if type(x + y + z)==float:
+    FLOATS+=1
+print(x * y * z)
+if type(x * y * z)==float:
+    FLOATS+=1
+print(int(x * z) + 1)
+if type(int(x * z) + 1)==float:
+    FLOATS+=1
+print(x/z)
+if type(x/z) == float:
+    FLOATS += 1
+print(x//z)
+if type(int(x//z)) == float:
+    FLOATS +=1
+print(x % y)
+if type(x % y)==float:
+    FLOATS+=1
+print(y**z)
+if type(y**z)==float:
+    FLOATS+=1
+print(((x+y)*(x+z)*(z+y))**3)
+if type(((x+y)*(x+z)*(z+y))**3)==float:
+    FLOATS+=1
+print(float('{:.5f}'.format(z)))
+if type(float('{:.5f}'.format(z)))==float:
+    FLOATS+=1
+print(FLOATS)
 
-FLOATS = ...
