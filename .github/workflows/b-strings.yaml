@@ -1,0 +1,26 @@
+name: 'Test tasks/b/strings.py'
+
+on:
+  pull_request:
+    types: [ opened, edited, synchronize ]
+    paths:
+      - 'tasks/b/strings.py'
+      - 'test/b/test_strings.py'
+      - '.github/workflows/b-strings.yaml'
+  workflow_dispatch:
+
+jobs:
+  test-strings:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    strategy:
+      fail-fast: false
+      matrix:
+        line: [ 1, 2, 3, 4, 5, 6, 7 ]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: pip install pytest
+      - run: pytest test/b/test_strings.py --line ${{ matrix.line }}
